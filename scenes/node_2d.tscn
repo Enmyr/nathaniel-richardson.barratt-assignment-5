@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cnkn8ey3oaeho"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1153.0
+offset_bottom = 650.0
+color = Color(0.67, 0.62645, 0.469, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 505.0
+offset_top = 296.0
+offset_right = 657.0
+offset_bottom = 319.0
+text = "Finally using Godot!"
