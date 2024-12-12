@@ -1,25 +1,126 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnkn8ey3oaeho"]
+[gd_scene load_steps=4 format=3 uid="uid://cnkn8ey3oaeho"]
 
-[ext_resource type="Script" path="res://scripts/time_elapsed.cs" id="1_kg152"]
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_cd17g"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kx5c8"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1153.0
-offset_bottom = 650.0
-color = Color(0.67, 0.62645, 0.469, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpweo"]
+size = Vector2(10, 10)
 
-[node name="Label" type="Label" parent="."]
-offset_left = 505.0
-offset_top = 296.0
-offset_right = 657.0
-offset_bottom = 319.0
-text = "Finally using Godot!"
+[node name="Scene" type="Node2D"]
 
-[node name="LabelTime" type="Label" parent="."]
-offset_left = 505.0
-offset_top = 329.0
-offset_right = 657.0
-offset_bottom = 352.0
-text = "(time elapsed)"
-script = ExtResource("1_kg152")
+[node name="Background" type="Node2D" parent="."]
+
+[node name="BlackBG" type="Node2D" parent="Background"]
+position = Vector2(576, 324)
+script = ExtResource("1_cd17g")
+size = Vector2(1152, 648)
+corner_radius = 0.0
+fill_color = Color(0, 0, 0, 1)
+
+[node name="Line1" type="Node2D" parent="Background"]
+position = Vector2(576, 54)
+script = ExtResource("1_cd17g")
+size = Vector2(10, 30)
+corner_radius = 0.0
+
+[node name="Line2" type="Node2D" parent="Background"]
+position = Vector2(576, 114)
+script = ExtResource("1_cd17g")
+size = Vector2(10, 30)
+corner_radius = 0.0
+
+[node name="Line3" type="Node2D" parent="Background"]
+position = Vector2(576, 174)
+script = ExtResource("1_cd17g")
+size = Vector2(10, 30)
+corner_radius = 0.0
+
+[node name="Line4" type="Node2D" parent="Background"]
+position = Vector2(576, 234)
+script = ExtResource("1_cd17g")
+size = Vector2(10, 30)
+corner_radius = 0.0
+
+[node name="Line5" type="Node2D" parent="Background"]
+position = Vector2(576, 294)
+script = ExtResource("1_cd17g")
+size = Vector2(10, 30)
+corner_radius = 0.0
+
+[node name="Line6" type="Node2D" parent="Background"]
+position = Vector2(576, 354)
+script = ExtResource("1_cd17g")
+size = Vector2(10, 30)
+corner_radius = 0.0
+
+[node name="Line7" type="Node2D" parent="Background"]
+position = Vector2(576, 414)
+script = ExtResource("1_cd17g")
+size = Vector2(10, 30)
+corner_radius = 0.0
+
+[node name="Line8" type="Node2D" parent="Background"]
+position = Vector2(576, 474)
+script = ExtResource("1_cd17g")
+size = Vector2(10, 30)
+corner_radius = 0.0
+
+[node name="Line9" type="Node2D" parent="Background"]
+position = Vector2(576, 534)
+script = ExtResource("1_cd17g")
+size = Vector2(10, 30)
+corner_radius = 0.0
+
+[node name="Line10" type="Node2D" parent="Background"]
+position = Vector2(576, 594)
+script = ExtResource("1_cd17g")
+size = Vector2(10, 30)
+corner_radius = 0.0
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Player"]
+position = Vector2(100, 324)
+scale = Vector2(1, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/StaticBody2D"]
+shape = SubResource("RectangleShape2D_kx5c8")
+metadata/_edit_lock_ = true
+
+[node name="Rectangle" type="Node2D" parent="Player/StaticBody2D"]
+script = ExtResource("1_cd17g")
+size = Vector2(20, 20)
+corner_radius = 0.0
+metadata/_edit_lock_ = true
+
+[node name="Opponent" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Opponent"]
+position = Vector2(1052, 324)
+scale = Vector2(1, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Opponent/StaticBody2D"]
+shape = SubResource("RectangleShape2D_kx5c8")
+metadata/_edit_lock_ = true
+
+[node name="Rectangle" type="Node2D" parent="Opponent/StaticBody2D"]
+script = ExtResource("1_cd17g")
+size = Vector2(20, 20)
+corner_radius = 0.0
+metadata/_edit_lock_ = true
+
+[node name="Target Ball" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Target Ball"]
+position = Vector2(576, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target Ball/StaticBody2D"]
+shape = SubResource("RectangleShape2D_kpweo")
+metadata/_edit_lock_ = true
+
+[node name="Rectangle" type="Node2D" parent="Target Ball/StaticBody2D"]
+script = ExtResource("1_cd17g")
+size = Vector2(10, 10)
+corner_radius = 0.0
+metadata/_edit_lock_ = true
