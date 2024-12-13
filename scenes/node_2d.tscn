@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://cnkn8ey3oaeho"]
 
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_cd17g"]
-[ext_resource type="PhysicsMaterial" path="res://the_bouncer.tres" id="2_70upy"]
 [ext_resource type="Script" path="res://scenes/BallObj.cs" id="2_281v8"]
+[ext_resource type="PhysicsMaterial" uid="uid://bbk7yqrlbpeac" path="res://the_bouncer.tres" id="2_a7rqt"]
 [ext_resource type="Script" path="res://scenes/LPadel.cs" id="3_1r8we"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kx5c8"]
@@ -33,67 +33,67 @@ fill_color = Color(0, 0, 0, 1)
 [node name="Line1" type="Node2D" parent="Background"]
 position = Vector2(576, 54)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 30)
+size = Vector2(20, 30)
 corner_radius = 0.0
 
 [node name="Line2" type="Node2D" parent="Background"]
 position = Vector2(576, 114)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 30)
+size = Vector2(20, 30)
 corner_radius = 0.0
 
 [node name="Line3" type="Node2D" parent="Background"]
 position = Vector2(576, 174)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 30)
+size = Vector2(20, 30)
 corner_radius = 0.0
 
 [node name="Line4" type="Node2D" parent="Background"]
 position = Vector2(576, 234)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 30)
+size = Vector2(20, 30)
 corner_radius = 0.0
 
 [node name="Line5" type="Node2D" parent="Background"]
 position = Vector2(576, 294)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 30)
+size = Vector2(20, 30)
 corner_radius = 0.0
 
 [node name="Line6" type="Node2D" parent="Background"]
 position = Vector2(576, 354)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 30)
+size = Vector2(20, 30)
 corner_radius = 0.0
 
 [node name="Line7" type="Node2D" parent="Background"]
 position = Vector2(576, 414)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 30)
+size = Vector2(20, 30)
 corner_radius = 0.0
 
 [node name="Line8" type="Node2D" parent="Background"]
 position = Vector2(576, 474)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 30)
+size = Vector2(20, 30)
 corner_radius = 0.0
 
 [node name="Line9" type="Node2D" parent="Background"]
 position = Vector2(576, 534)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 30)
+size = Vector2(20, 30)
 corner_radius = 0.0
 
 [node name="Line10" type="Node2D" parent="Background"]
 position = Vector2(576, 594)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 30)
+size = Vector2(20, 30)
 corner_radius = 0.0
 
 [node name="Player" type="Node2D" parent="."]
 
 [node name="LPadel" type="RigidBody2D" parent="Player"]
-physics_material_override = ExtResource("2_70upy")
+physics_material_override = ExtResource("2_a7rqt")
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
@@ -117,7 +117,7 @@ metadata/_edit_lock_ = true
 [node name="Opponent" type="Node2D" parent="."]
 
 [node name="RPadel" type="RigidBody2D" parent="Opponent"]
-physics_material_override = ExtResource("2_70upy")
+physics_material_override = ExtResource("2_a7rqt")
 gravity_scale = 0.0
 lock_rotation = true
 freeze = true
@@ -140,7 +140,7 @@ metadata/_edit_lock_ = true
 [node name="Target Ball" type="Node2D" parent="."]
 
 [node name="BallObj" type="RigidBody2D" parent="Target Ball"]
-physics_material_override = ExtResource("2_70upy")
+physics_material_override = ExtResource("2_a7rqt")
 gravity_scale = 0.0
 lock_rotation = true
 freeze_mode = 1
@@ -163,7 +163,7 @@ metadata/_edit_lock_ = true
 [node name="Y-Axis" type="Node2D" parent="Border Collision"]
 
 [node name="ScreenTop" type="StaticBody2D" parent="Border Collision/Y-Axis"]
-physics_material_override = ExtResource("2_70upy")
+physics_material_override = ExtResource("2_a7rqt")
 
 [node name="TopBarrier" type="CollisionShape2D" parent="Border Collision/Y-Axis/ScreenTop"]
 position = Vector2(576, -5)
@@ -171,7 +171,7 @@ scale = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_a1g3t")
 
 [node name="ScreenBottom" type="StaticBody2D" parent="Border Collision/Y-Axis"]
-physics_material_override = ExtResource("2_70upy")
+physics_material_override = ExtResource("2_a7rqt")
 
 [node name="BottomBarrier" type="CollisionShape2D" parent="Border Collision/Y-Axis/ScreenBottom"]
 position = Vector2(576, 653)
@@ -182,7 +182,7 @@ one_way_collision_margin = 0.0
 [node name="X-Axis" type="Node2D" parent="Border Collision"]
 
 [node name="ScreenLeft" type="StaticBody2D" parent="Border Collision/X-Axis"]
-physics_material_override = ExtResource("2_70upy")
+physics_material_override = ExtResource("2_a7rqt")
 
 [node name="LeftBarrier" type="CollisionShape2D" parent="Border Collision/X-Axis/ScreenLeft"]
 position = Vector2(-30, 324)
@@ -191,7 +191,7 @@ shape = SubResource("RectangleShape2D_2xv6n")
 debug_color = Color(1, 0, 0, 0.498039)
 
 [node name="ScreenRight" type="StaticBody2D" parent="Border Collision/X-Axis"]
-physics_material_override = ExtResource("2_70upy")
+physics_material_override = ExtResource("2_a7rqt")
 
 [node name="RightBarrier" type="CollisionShape2D" parent="Border Collision/X-Axis/ScreenRight"]
 position = Vector2(1182, 324)
