@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnkn8ey3oaeho"]
+[gd_scene load_steps=6 format=3 uid="uid://cnkn8ey3oaeho"]
 
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_cd17g"]
 
@@ -6,6 +6,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpweo"]
 size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1g3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgc12"]
 
 [node name="Scene" type="Node2D"]
 
@@ -80,15 +84,17 @@ corner_radius = 0.0
 
 [node name="Player" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Player"]
+[node name="LPadel" type="RigidBody2D" parent="Player"]
+
+[node name="LPadelCollision" type="CollisionShape2D" parent="Player/LPadel"]
 position = Vector2(100, 324)
 scale = Vector2(1, 8)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/StaticBody2D"]
 shape = SubResource("RectangleShape2D_kx5c8")
 metadata/_edit_lock_ = true
 
-[node name="Rectangle" type="Node2D" parent="Player/StaticBody2D"]
+[node name="LPadelVisual" type="Node2D" parent="Player/LPadel"]
+position = Vector2(100, 324)
+scale = Vector2(1, 8)
 script = ExtResource("1_cd17g")
 size = Vector2(20, 20)
 corner_radius = 0.0
@@ -96,15 +102,17 @@ metadata/_edit_lock_ = true
 
 [node name="Opponent" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Opponent"]
+[node name="RPadel" type="RigidBody2D" parent="Opponent"]
+
+[node name="RPadelCollision" type="CollisionShape2D" parent="Opponent/RPadel"]
 position = Vector2(1052, 324)
 scale = Vector2(1, 8)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Opponent/StaticBody2D"]
 shape = SubResource("RectangleShape2D_kx5c8")
 metadata/_edit_lock_ = true
 
-[node name="Rectangle" type="Node2D" parent="Opponent/StaticBody2D"]
+[node name="RPadelVisual" type="Node2D" parent="Opponent/RPadel"]
+position = Vector2(1052, 324)
+scale = Vector2(1, 8)
 script = ExtResource("1_cd17g")
 size = Vector2(20, 20)
 corner_radius = 0.0
@@ -112,15 +120,42 @@ metadata/_edit_lock_ = true
 
 [node name="Target Ball" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Target Ball"]
-position = Vector2(576, 324)
+[node name="BallObj" type="RigidBody2D" parent="Target Ball"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Target Ball/StaticBody2D"]
+[node name="BallCollision" type="CollisionShape2D" parent="Target Ball/BallObj"]
+position = Vector2(576, 324)
 shape = SubResource("RectangleShape2D_kpweo")
 metadata/_edit_lock_ = true
 
-[node name="Rectangle" type="Node2D" parent="Target Ball/StaticBody2D"]
+[node name="BallVisual" type="Node2D" parent="Target Ball/BallObj"]
+position = Vector2(576, 324)
 script = ExtResource("1_cd17g")
-size = Vector2(10, 10)
+size = Vector2(20, 20)
 corner_radius = 0.0
 metadata/_edit_lock_ = true
+
+[node name="Border Collision" type="Node2D" parent="."]
+
+[node name="Y-Axis" type="Node2D" parent="Border Collision"]
+
+[node name="ScreenTop" type="StaticBody2D" parent="Border Collision/Y-Axis"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border Collision/Y-Axis/ScreenTop"]
+shape = SubResource("RectangleShape2D_a1g3t")
+
+[node name="ScreenBottom" type="StaticBody2D" parent="Border Collision/Y-Axis"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border Collision/Y-Axis/ScreenBottom"]
+shape = SubResource("RectangleShape2D_sgc12")
+
+[node name="X-Axis" type="Node2D" parent="Border Collision"]
+
+[node name="ScreenLeft" type="StaticBody2D" parent="Border Collision/X-Axis"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border Collision/X-Axis/ScreenLeft"]
+shape = SubResource("RectangleShape2D_a1g3t")
+
+[node name="ScreenRight" type="StaticBody2D" parent="Border Collision/X-Axis"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border Collision/X-Axis/ScreenRight"]
+shape = SubResource("RectangleShape2D_sgc12")
