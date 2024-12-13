@@ -22,3 +22,11 @@ project/assembly_name="nathaniel-richardson.barratt-assignment-5"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/2d_shapes/plugin.cfg")
+
+[physics]
+
+3d/physics_engine="GodotPhysics3D"
+3d/default_linear_damp=0.0
+3d/default_angular_damp=0.0
+3d/sleep_threshold_linear=0.0
+3d/sleep_threshold_angular=0.0
